@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Développement Personnel - Libérez votre potentiel avec des articles, des vidéos et des ressources.">
+    <meta name="keywords" content="développement personnel, motivation, articles, vidéos, cours">
     <title>Développement Personnel - Unique</title>
     <link rel="stylesheet" type="text/css" href="Style.css">
-    <script type="Script.js" defer=""></script>
+    <script type="text/javascript" src="Script.js" defer></script>
 </head>
 <body>
     <header>
         <div class="header-content">
             <a href="#" class="logo">DevPerso</a>
-            <button class="hamburger">
+            <button class="hamburger" aria-label="Menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -31,13 +33,13 @@
         </div>
     </header>
 
-    <main>
-        <section class="banner">
+    <main id="main-content">
+        <section class="banner" aria-label="Bannière">
             <h1>Libérez Votre Potentiel Aujourd'hui !</h1>
             <a href="#" class="cta-button">Commencer</a>
         </section>
 
-        <section class="featured-section">
+        <section class="featured-section" aria-label="Articles Populaires">
             <h2>Articles Populaires</h2>
             <div class="featured-grid">
                 <article class="featured-item">
@@ -55,16 +57,6 @@
             </div>
         </section>
 
-    </main>
-    <!-- Skip Link for Keyboard Navigation -->
-    <a href="#main-content" class="skip-link">Passer au contenu principal</a>
-
-    <!-- Previous header and banner content -->
-
-    <main id="main-content">
-        <!-- Previous sections -->
-
-        <!-- Testimonials Section -->
         <section class="testimonials" aria-label="Témoignages">
             <div class="testimonials-container">
                 <h2>Ce que disent nos clients</h2>
@@ -76,7 +68,7 @@
                         <div class="testimonial-author">
                             <div class="author-avatar">ML</div>
                             <div class="author-info">
-                                <h4>??</h4>
+                                <h4>Marie L.</h4>
                                 <p>Entrepreneure</p>
                             </div>
                         </div>
@@ -89,7 +81,7 @@
                         <div class="testimonial-author">
                             <div class="author-avatar">TD</div>
                             <div class="author-info">
-                                <h4>??</h4>
+                                <h4>Thomas D.</h4>
                                 <p>Manager</p>
                             </div>
                         </div>
@@ -102,7 +94,7 @@
                         <div class="testimonial-author">
                             <div class="author-avatar">SM</div>
                             <div class="author-info">
-                                <h4>??</h4>
+                                <h4>Sophie M.</h4>
                                 <p>Coach Sportif</p>
                             </div>
                         </div>
@@ -111,9 +103,9 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
         <section class="contact-section" aria-label="Contact">
             <div class="contact-container">
+                < ```html
                 <div class="contact-info">
                     <h2>Contactez-nous</h2>
                     <p>Nous sommes là pour vous accompagner dans votre développement personnel.</p>
@@ -134,29 +126,26 @@
                     </div>
                 </div>
 
-                <form class="contact-form" action="#" method="POST">
+                <form class="contact-form" action="#" method="POST" aria-labelledby="contact-form">
+                    <h3 id="contact-form">Formulaire de Contact</h3>
                     <div class="form-group">
                         <label for="name">Nom complet</label>
-                        <input type="text" id="name" name="name" required 
-                               aria-required="true">
+                        <input type="text" id="name" name="name" required aria-required="true">
                     </div>
                     
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required 
-                               aria-required="true">
+                        <input type="email" id="email" name="email" required aria-required="true">
                     </div>
 
                     <div class="form-group">
                         <label for="subject">Sujet</label>
-                        <input type="text" id="subject" name="subject" required 
-                               aria-required="true">
+                        <input type="text" id="subject" name="subject" required aria-required="true">
                     </div>
 
                     <div class="form-group">
                         <label for="message">Message</label>
-                        <textarea id="message" name="message" required 
-                                  aria-required="true"></textarea>
+                        <textarea id="message" name="message" required aria-required="true"></textarea>
                     </div>
 
                     <button type="submit" class="submit-btn">Envoyer le message</button>
@@ -164,13 +153,13 @@
             </div>
         </section>
     </main>
-    <section class="newsletter">
-            <h2>Rejoignez notre communauté</h2>
-            <p>Recevez nos conseils et ressources directement dans votre boîte mail !</p>
-            <form>
-                <input type="email" placeholder="Votre email">
-                <button type="submit">S'inscrire</button>
-            </form>
-        </section>
+    <section class="newsletter" aria-label="Newsletter">
+        <h2>Rejoignez notre communauté</h2>
+        <p>Recevez nos conseils et ressources directement dans votre boîte mail !</p>
+        <form>
+            <input type="email" placeholder="Votre email" required aria-required="true">
+            <button type="submit">S'inscrire</button>
+        </form>
+    </section>
 </body>
 </html>
