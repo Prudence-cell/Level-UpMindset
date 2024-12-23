@@ -1,8 +1,4 @@
-/* Ajout de styles pour améliorer l'accessibilité */
-:focus {
-    outline: 3px solid var(--primary-color);
-    outline-offset: 2px;
-}
+
 {
             margin: 0;
             padding: 0;
