@@ -1,51 +1,50 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.querySelector('.hamburger');
-    const nav = document.querySelector('nav');
-    const body = document.body;
+// Add this to Script.js or replace existing code
 
-    // Toggle menu
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        nav.classList.toggle('active');
-        body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
-    });
+const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('nav');
 
-    // Fermer le menu au clic sur un lien
-    document.querySelectorAll('nav a').forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            nav.classList.remove('active');
-            body.style.overflow = '';
-        });
-    });
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    nav.classList.toggle('active');
+});
 
-    // Fermer le menu au clic en dehors
-    document.addEventListener('click', (e) => {
-        if (!nav.contains(e.target) && !hamburger.contains(e.target) && nav.classList.contains('active')) {
-            hamburger.classList.remove('active');
-            nav.classList.remove('active');
-            body.style.overflow = '';
-        }
-    });
+// Close menu when clicking outside of it
+document.addEventListener('click', (event) => {
+    const isClickInsideNav = nav.contains(event.target);
+    const isClickOnHamburger = hamburger.contains(event.target);
+    
+    if (!isClickInsideNav && !isClickOnHamburger && nav.classList.contains('active')) {
+        hamburger.classList.remove('active');
+        nav.classList.remove('active');
+    }
+});
 
-    // Support clavier
-    hamburger.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            hamburger.click();
-        }
-    });
-
-    // Amélioration de l'accessibilité pour le formulaire
-    document.querySelectorAll('input, textarea').forEach(element => {
-        element.addEventListener('invalid', function(e) {
-            e.target.setAttribute('aria-invalid', 'true');
-        });
+// Smooth scrolling for navigation links
+document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        hamburger.classList.remove('active');
+        nav.classList.remove('active');
         
-        element.addEventListener('input', function(e) {
-            if (e.target.validity.valid) {
-                e.target.removeAttribute('aria-invalid');
-            }
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
         });
     });
+});
+
+// Add some dynamic effects to the page
+window.addEventListener('scroll', function() {
+    let scrollPosition = window.pageYOffset;
+    document.querySelector('header').style.transform = 'translateY(' + scrollPosition * 0.5 + 'px)';
+});
+
+// Newsletter form submission animation
+document.querySelector('.newsletter form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    // Here you would typically send the form data. For now, let's just show an animation:
+    e.target.querySelector('button').classList.add('animate-pulse');
+    setTimeout(() => {
+        e.target.querySelector('button').classList.remove('animate-pulse');
+        alert('Inscription réussie !');
+    }, 2000);
 });
