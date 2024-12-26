@@ -495,3 +495,18 @@
                 transition: none !important;
             }
         }
+nav.active ul {
+    display: flex; /* Affiche le menu lorsque la classe active est ajoutée */
+    flex-direction: column; /* Aligne les éléments en colonne pour mobile */
+    gap: 1rem; /* Espace entre les éléments du menu */
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        display: none; /* Masquer le menu par défaut sur mobile */
+    }
+
+    nav.active ul {
+        display: flex; /* Affiche le menu lorsque la classe active est ajoutée */
+    }
+}
